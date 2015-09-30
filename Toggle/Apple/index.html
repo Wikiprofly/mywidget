@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Apple Toggle</title>
+    <style>
+        .slot{
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            position: relative;
+        }
+        .slot-on{
+            background-color: lightgreen;
+            transition: background-color .3s ease;
+            -webkit-transition: background-color .3s ease;
+        }
+        .slot-off{
+            background-color: darkgray;
+            transition: background-color .3s ease;
+            -webkit-transition: background-color .3s ease;
+        }
+        .btn{
+            width: 46px;
+            height: 46px;
+            border-radius: 23px;
+            background: linear-gradient(-45deg, #fff, #ddd);
+            position: absolute;
+            top: 2px;
+        }
+        .btn-on{
+            left: 52px;
+            transition: left .3s ease;
+            -webkit-transition: left .3s ease;
+        }
+        .btn-off{
+            left: 2px;
+            transition: left .3s ease;
+            -webkit-transition: left .3s ease;
+        }
+    </style>
+
+</head>
+<body>
+<div class="slot slot-off">
+    <div class="btn btn-off"></div>
+</div>
+<script>
+    window.onload = function(){
+        var oSlot = document.getElementsByClassName('slot')[0];
+        var oBtn = document.getElementsByClassName('btn')[0];
+        oSlot.addEventListener('click',function(){
+            if(oSlot.className == 'slot slot-off'){
+                oBtn.className = 'btn btn-on';
+                oSlot.className = 'slot slot-on';
+            }
+            else if(oSlot.className == 'slot slot-on'){
+                oBtn.className = 'btn btn-off';
+                oSlot.className = 'slot slot-off';
+            } else {
+                console.error("error!");
+            }
+        });
+    }
+</script>
+</body>
+</html>
